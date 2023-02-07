@@ -1,0 +1,18 @@
+#  how to compute the divergence of the vector field f(x, y) = (x, y) using only numpy:
+
+import numpy as np
+
+# Define a 2D grid of points
+x, y = np.meshgrid(np.linspace(-10, 10, 20), np.linspace(-10, 10, 20))
+
+# Define the vector field
+f_x = x
+f_y = y
+
+# Compute the gradient of the vector field along each axis
+grad_x, grad_y = np.gradient(f_x), np.gradient(f_y)
+
+# Compute the divergence of the vector field
+divergence = grad_x + grad_y
+
+print("Divergence of the vector field:\n", divergence)
