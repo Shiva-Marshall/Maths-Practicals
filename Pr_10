@@ -1,0 +1,26 @@
+# encoding and decoding a message using a non-singular matrix
+
+import numpy as np
+
+# Define a message
+
+message = np.array([[1], [2], [3]])
+
+# Define a non-singular matrix as the coding matrix
+
+coding_matrix = np.array([[1, 2, 3], [0, 1, 4], [5, 6, 0]])
+
+# Encode the message using the coding matrix
+
+encoded_message = np.dot(coding_matrix, message)
+
+# Define the decoding matrix as the inverse of the coding matrix
+
+decoding_matrix = np.linalg.inv(coding_matrix)
+
+# Decode the encoded message using the decoding matrix
+
+decoded_message = np.dot(decoding_matrix, encoded_message)
+
+print("Encoded message:", encoded_message)
+print("Decoded message:", decoded_message)
