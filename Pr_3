@@ -1,0 +1,19 @@
+import numpy as np
+
+# Define the matrix
+A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# Calculate the determinant of the matrix
+det = np.linalg.det(A)
+
+# Calculate the adjoint of the matrix
+adj = np.linalg.inv(A).T * det
+
+# Calculate the inverse of the matrix
+inv = np.linalg.inv(A)
+
+print("Determinant of the matrix:", det)
+print("Adjoint of the matrix:")
+print(adj)
+print("Inverse of the matrix:")
+print(inv)
