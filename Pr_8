@@ -1,0 +1,25 @@
+# The Gram-Schmidt orthogonalization process is a method for finding the orthonormal basis of a vector space.
+# It starts with a set of linearly independent vectors and produces an orthogonal set of vectors that span the same space.
+
+import numpy as np
+
+# Define the set of vectors
+vectors = np.array([[1, 2, 3], [2, 4, 6], [3, 6, 9]])
+
+# Initialize the orthogonal vectors
+
+orthogonal = np.zeros_like(vectors)
+
+# Compute the first orthogonal vector
+
+orthogonal[0] = vectors[0] / np.linalg.norm(vectors[0])
+
+# Compute the remaining orthogonal vectors
+for i in range(1, vectors.shape[0]):
+    projection = np.dot(vectors[i], orthogonal[:i].T)
+    orthogonal[i] = vectors[i] - np.sum(projection * orthogonal[:i], axis=0)
+    orthogonal[i] /= np.linalg.norm(orthogonal[i])
+
+print("The orthogonal basis is:")
+
+print(orthogonal)
