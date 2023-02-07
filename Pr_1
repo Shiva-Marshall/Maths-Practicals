@@ -1,0 +1,58 @@
+
+# CREATING VECTORS 
+import numpy as np
+
+# create a row vector
+v = np.array([1, 2, 3])
+
+# create a column vector
+v = np.array([[1], [2], [3]])
+
+# CREATING MATRICES
+
+import numpy as np
+
+# create a 2x3 matrix
+A = np.array([[1, 2, 3], [4, 5, 6]])
+
+# TRANSPOSE OF A VECTOR
+
+import numpy as np
+
+v = np.array([1, 2, 3])
+
+# transpose of a row vector
+v_transpose = v.T
+
+# transpose of a column vector
+v_transpose = v.reshape(3, 1)
+
+#TRANSPOSE OF A MATRIX
+
+import numpy as np
+
+A = np.array([[1, 2, 3], [4, 5, 6]])
+
+# transpose of a matrix
+A_transpose = A.T
+
+#Conjugate transpose of a vector (also known as the Hermitian transpose):
+
+import numpy as np
+
+v = np.array([1+2j, 2+3j, 3+4j])
+
+# conjugate transpose of a vector
+v_conjugate_transpose = np.conj(v).T
+
+
+
+# Conjugate transpose of a matrix (also known as the Hermitian transpose):
+
+import numpy as np
+
+A = np.array([[1+2j, 2+3j, 3+4j], [4+5j, 5+6j, 6+7j]])
+
+# conjugate transpose of a matrix
+A_conjugate_transpose = np.conj(A).T
+
