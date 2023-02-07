@@ -1,0 +1,35 @@
+You can check the linear dependence of vectors in Python by computing their rank and comparing it to the number of vectors.
+If the rank is less than the number of vectors, the vectors are linearly dependent
+
+
+# linear dependence of a set of vectors in Python using the numpy library:
+
+import numpy as np
+
+# Define the set of vectors
+vectors = np.array([[1, 2, 3], [2, 4, 6], [3, 6, 9]])
+
+# Compute the rank of the set of vectors
+rank = np.linalg.matrix_rank(vectors)
+
+if rank < vectors.shape[0]:
+    print("The vectors are linearly dependent.")
+else:
+    print("The vectors are linearly independent.")
+
+
+# linear combination of given vectors in Python,
+
+import numpy as np
+
+# Define the set of vectors
+vectors = np.array([[1, 2, 3], [2, 4, 6]])
+
+# Define the coefficients for the linear combination
+coefficients = np.array([2, 3])
+
+# Compute the linear combination of the vectors
+linear_combination = np.dot(coefficients, vectors)
+
+print("The linear combination of the vectors is:")
+print(linear_combination)
