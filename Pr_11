@@ -1,0 +1,14 @@
+#  how to compute the gradient of the scalar field f(x, y) = x^2 + y^2 using only numpy:
+
+import numpy as np
+
+# Define a 2D grid of points
+x, y = np.meshgrid(np.linspace(-10, 10, 20), np.linspace(-10, 10, 20))
+
+# Compute the scalar field
+f = x**2 + y**2
+
+# Compute the gradient of the scalar field
+gradient = np.gradient(f)
+
+print("Gradient of the scalar field:\n", gradient)
