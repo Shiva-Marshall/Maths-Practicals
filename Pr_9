@@ -1,0 +1,12 @@
+# To find the eigenvalues and eigenvectors of a matrix, you can use the numpy library's linalg.eig function.
+
+import numpy as np
+
+# Define a matrix
+A = np.array([[2, -1], [1, 2]])
+
+# Compute the eigenvalues and eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(A)
+
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:", eigenvectors)
