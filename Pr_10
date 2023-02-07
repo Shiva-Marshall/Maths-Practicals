@@ -1,14 +1,12 @@
-# encoding and decoding a message using a non-singular matrix
-
 import numpy as np
 
-# Define a message
+# Define the message as a matrix
 
-message = np.array([[1], [2], [3]])
+message = np.array([[ord(c) - ord("A") + 1] for c in "LINEAR ALGEBRA IS FUN"])
 
 # Define a non-singular matrix as the coding matrix
 
-coding_matrix = np.array([[1, 2, 3], [0, 1, 4], [5, 6, 0]])
+coding_matrix = np.array([[1, 2, 3, 4], [0, 1, 4, 5], [5, 6, 0, 1], [7, 8, 9, 0]])
 
 # Encode the message using the coding matrix
 
@@ -22,5 +20,9 @@ decoding_matrix = np.linalg.inv(coding_matrix)
 
 decoded_message = np.dot(decoding_matrix, encoded_message)
 
+# Convert the decoded message back to a string
+
+decoded_message_str = "".join([chr(int(c[0]) + ord("A") - 1) for c in decoded_message.tolist()])
+
 print("Encoded message:", encoded_message)
-print("Decoded message:", decoded_message)
+print("Decoded message:", decoded_message_str)
