@@ -10,3 +10,22 @@ eigenvalues, eigenvectors = np.linalg.eig(A)
 
 print("Eigenvalues:", eigenvalues)
 print("Eigenvectors:", eigenvectors)
+
+#verify the Cayley-Hamilton theorem in Python:
+
+import numpy as np
+
+# Define a matrix
+A = np.array([[2, -1], [1, 2]])
+
+# Compute the eigenvalues
+
+eigenvalues = np.linalg.eigvals(A)
+
+# Define the characteristic polynomial of the matrix
+
+characteristic_polynomial = np.poly1d([1, -(A[0,0] + A[1,1]), (A[0,0]*A[1,1] - A[0,1]*A[1,0])])
+
+# Verify the Cayley-Hamilton theorem
+
+print("Cayley-Hamilton theorem:", np.allclose(np.polyval(characteristic_polynomial, A), 0))
