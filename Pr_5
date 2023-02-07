@@ -1,0 +1,29 @@
+import numpy as np
+
+# Define the coefficients matrix and the constants matrix
+
+
+A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+b = np.array([0, 0, 0])
+
+# Concatenate the coefficients matrix and the constants matrix
+AB = np.hstack((A, b.reshape(-1, 1)))
+
+# Perform row operations to get the identity matrix
+for i in range(AB.shape[0]):
+    for j in range(i+1, AB.shape[0]):
+        factor = AB[j, i] / AB[i, i]
+        AB[j, :] -= factor * AB[i, :]
+
+# Divide each row by the leading coefficient
+
+
+for i in range(AB.shape[0]-1, -1, -1):
+    AB[i, :] /= AB[i, i]
+
+# Extract the solution
+
+x = AB[:, -1]
+
+print("The solution of the system is:")
+print(x)
