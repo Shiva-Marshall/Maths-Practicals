@@ -3,17 +3,30 @@ import numpy as np
 # Define the matrix
 A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
-# Calculate the determinant of the matrix
+# Find the cofactors
+cofactors = np.zeros(A.shape)
+for i in range(A.shape[0]):
+    for j in range(A.shape[1]):
+        minor = np.delete(np.delete(A, i, axis=0), j, axis=1)
+        cofactors[i, j] = (-1) ** (i + j) * np.linalg.det(minor)
+
+# Print the cofactors
+print("Cofactors:")
+print(cofactors)
+
+# Find the determinant
 det = np.linalg.det(A)
+print("Determinant:", det)
 
-# Calculate the adjoint of the matrix
-adj = np.linalg.inv(A).T * det
-
-# Calculate the inverse of the matrix
-inv = np.linalg.inv(A)
-
-print("Determinant of the matrix:", det)
-print("Adjoint of the matrix:")
+# Find the adjoint
+adj = cofactors.T
+print("Adjoint:")
 print(adj)
-print("Inverse of the matrix:")
-print(inv)
+
+# Find the inverse
+if det != 0:
+    inv = adj / det
+    print("Inverse:")
+    print(inv)
+else:
+    print("Inverse does not exist.")
