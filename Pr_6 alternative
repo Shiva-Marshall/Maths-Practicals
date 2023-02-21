@@ -1,0 +1,22 @@
+import numpy as np
+
+# define the matrix
+A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# basis of column space
+col_space_basis = np.linalg.matrix_rank(A)
+print(f"Basis of column space: {col_space_basis}")
+
+# null space
+U, s, V = np.linalg.svd(A)
+null_space_basis = V[np.argwhere(s < 1e-10).flatten()]
+print(f"Basis of null space:\n {null_space_basis}")
+
+# basis of row space
+row_space_basis = np.linalg.matrix_rank(A.T)
+print(f"Basis of row space: {row_space_basis}")
+
+# left null space
+U, s, V = np.linalg.svd(A.T)
+left_null_space_basis = V[np.argwhere(s < 1e-10).flatten()]
+print(f"Basis of left null space:\n {left_null_space_basis}")
